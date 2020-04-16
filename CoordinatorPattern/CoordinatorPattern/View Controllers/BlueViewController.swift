@@ -31,7 +31,6 @@ extension BlueViewController: UITableViewDelegate, UITableViewDataSource {
         }
 
         func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-            
             return colors.count
         }
         
@@ -39,13 +38,12 @@ extension BlueViewController: UITableViewDelegate, UITableViewDataSource {
             let cell = fooTableView.dequeueReusableCell(for: indexPath) as FooTableViewCell
             
             let color = colors[indexPath.row]
-            let textColor = color.lowercased()
             
             cell.colorLabel.text = color
             
-            if textColor == "red" {
+            if color == "Red" {
                 cell.colorLabel.textColor = .red
-            } else if textColor == "yellow" {
+            } else if color == "Yellow" {
                 cell.colorLabel.textColor = .yellow
             }
             
@@ -54,11 +52,10 @@ extension BlueViewController: UITableViewDelegate, UITableViewDataSource {
         
         func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
             let color = colors[indexPath.row]
-            let textColor = color.lowercased()
             
-            if textColor == "red" {
+            if color == "Red" {
                 coordinator?.redVC()
-            } else if textColor == "yellow" {
+            } else if color == "Yellow" {
                 coordinator?.yellowVC()
             }
             
